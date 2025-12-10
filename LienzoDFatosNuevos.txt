@@ -1,0 +1,8 @@
+Solo ingrese TiposExamen/consultas
+		TipoRadiologia/NO APLICA
+
+
+solo se subieron 50 filas de examens
+hay otra tabla que quedo faltando 1 regito
+y subir vias de administracion
+y aldia
