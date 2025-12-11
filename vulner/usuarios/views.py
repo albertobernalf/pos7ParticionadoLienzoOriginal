@@ -3021,6 +3021,189 @@ def import_datos_global_1(request):
                     return JsonResponse({'success': False, 'Mensaje': e})
 
 
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/TiposSalas.csv'
+    print("file_path", file_path)
+
+    tiposSalas = TiposSalas.objects.count()
+
+    if (tiposSalas == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    tiposSalas = TiposSalas.objects.create(
+                        nombre=row[1],
+                        estadoReg=row[2]
+
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/Ubicaciones.csv'
+    print("file_path", file_path)
+
+    ubicaciones = Ubicaciones.objects.count()
+
+    if (ubicaciones == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    ubicaciones = Ubicaciones.objects.create(
+                        nombre=row[1],
+                        estadoReg=row[2],
+                        sedesClinica_id = row[3],
+
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/GruposQx.csv'
+    print("file_path", file_path)
+
+    gruposQx = GruposQx.objects.count()
+
+    if (gruposQx == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    gruposQx = GruposQx.objects.create(
+                        nombre=row[1],
+                        estadoReg=row[3]
+
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/DependenciasTipo.csv'
+    print("file_path", file_path)
+
+    dependenciasTipo = DependenciasTipo.objects.count()
+
+    if (dependenciasTipo == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    dependenciasTipo = DependenciasTipo.objects.create(
+                        nombre=row[1],
+                        estadoReg=row[3],
+
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/TiposTarifaProducto.csv'
+    print("file_path", file_path)
+
+    tiposTarifaProducto = TiposTarifaProducto.objects.count()
+
+    if (tiposTarifaProducto == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    tiposTarifaProducto = TiposTarifaProducto.objects.create(
+                        nombre=row[1],
+                        estadoReg=row[3],
+
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
+
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/MinimosLegales.csv'
+    print("file_path", file_path)
+
+    minimosLegales = MinimosLegales.objects.count()
+
+    if (minimosLegales == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    minimosLegales = MinimosLegales.objects.create(
+                        nombre=row[1],
+                        año=row[2],
+                        valor=row[3],
+                        estadoReg=row[5],
+
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
+
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/DescripcionHonorarios.csv'
+    print("file_path", file_path)
+
+    descripcionHonorarios = DescripcionHonorarios.objects.count()
+
+    if (descripcionHonorarios == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    descripcionHonorarios = DescripcionHonorarios.objects.create(
+                        nombre=row[1],
+                        estadoReg=row[3],
+
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
 
 
 
@@ -3802,6 +3985,588 @@ def import_datos_global_2(request):
 
                     #print("Error al crear : {e}")
                     #return JsonResponse({'success': False, 'Mensaje': e})
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/Ubicaciones.csv'
+    print("file_path", file_path)
+
+    ubicaciones = Ubicaciones.objects.count()
+
+    if (ubicaciones == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    ubicaciones = Ubicaciones.objects.create(
+                        nombre=row[1],
+                        estadoReg=row[2],
+                        sedesClinica_id = row[3]
+
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/Localidades.csv'
+    print("file_path", file_path)
+
+    localidades = Localidades.objects.count()
+
+    if (localidades == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    localidades = Localidades.objects.create(
+                        nombre=row[1],
+                        localidadCodigoDian=row[2],
+                        estadoReg=row[4],
+                        municipio_id = row[5],
+
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/Centros.csv'
+    print("file_path", file_path)
+
+    centros = Centros.objects.count()
+
+    if (centros == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    centros = Centros.objects.create(
+                        nombre=row[1],
+                        ubicacion=row[2],
+                        direccion=row[3],
+                        telefono = row[4],
+                        contacto=row[5],
+                        estadoReg=row[7],
+                        ciudades_id=row[8],
+                        departamentos_id=row[9],
+
+
+
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/Salas.csv'
+    print("file_path", file_path)
+
+    salas = Salas.objects.count()
+
+    if (salas == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    salas = Salas.objects.create(
+                        numero=row[1],
+                        nombre=row[2],
+                        estadoReg=row[4],
+                        dependenciaTipo_id=row[5],
+                        sedesClinica_id=row[6],
+                        serviciosAdministrativos_id=row[7],
+                        estadosala_id=row[8],
+                        tiposala=row[9],
+                        finServicio=row[10],
+                        iniciaServicio=row[11],
+
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/ServiciosAdministrativos.csv'
+    print("file_path", file_path)
+
+    serviciosAdministrativos = ServiciosAdministrativos.objects.count()
+
+    if (serviciosAdministrativos == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    serviciosAdministrativos = ServiciosAdministrativos.objects.create(
+                        nombre=row[1],
+                        estadoReg=row[3],
+                        dependenciaTipo_id=row[4],
+                        sedesClinica_id=row[5],
+                        ubicaciones_id=row[6],
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/TiposTarifa.csv'
+    print("file_path", file_path)
+
+    tiposTarifa = TiposTarifa.objects.count()
+
+    if (tiposTarifa == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    tiposTarifa = TiposTarifa.objects.create(
+                        nombre=row[1],
+                        estadoReg=row[3],
+                        tiposTarifaProducto_id=row[4],
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
+
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/TiposHonorarios.csv'
+    print("file_path", file_path)
+
+    tiposHonorarios = TiposHonorarios.objects.count()
+
+    if (tiposHonorarios == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    tiposHonorarios = TiposHonorarios.objects.create(
+                        nombre=row[1],
+                        estadoReg=row[3],
+                        ripsTipoOtrosServicios_id=row[4],
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/ServiciosSedes.csv'
+    print("file_path", file_path)
+
+    serviciosSedes = ServiciosSedes.objects.count()
+
+    if (serviciosSedes == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    serviciosSedes = ServiciosSedes.objects.create(
+                        nombre=row[1],
+                        descripcion=row[2],
+                        estadoReg=row[3],
+                        sedesClinica_id=row[4],
+                        servicios_id=row[5],
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/TarifariosDescripcion.csv'
+    print("file_path", file_path)
+
+    tarifariosDescripcion = TarifariosDescripcion.objects.count()
+
+    if (tarifariosDescripcion == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    tarifariosDescripcion = TarifariosDescripcion.objects.create(
+                        columna=row[1],
+                        descripcion=row[2],
+                        estadoReg=row[4],
+                        tiposTarifa_id=row[5],
+                        serviciosAdministrativos_id=row[6],
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/Estancias.csv'
+    print("file_path", file_path)
+
+    estancias = Estancias.objects.count()
+
+    if (estancias == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    estancias = Estancias.objects.create(
+                        referencia=row[1],
+                        codigo=row[2],
+                        descripcion=row[3],
+                        tipoestancia=row[4],
+                        valor=row[5],
+                        estadoReg=row[6],
+                        cups_id=row[7],
+
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/TarifariosProcedimientos.csv'
+    print("file_path", file_path)
+
+    tarifariosProcedimientos = TarifariosProcedimientos.objects.count()
+
+    if (tarifariosProcedimientos == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    tarifariosProcedimientos = TarifariosProcedimientos.objects.create(
+                        codigoHomologado=row[1],
+                        colValorBase=row[2],
+                        colValor1=row[3],
+                        colValor2=row[4],
+                        colValor3=row[5],
+                        colValor4=row[6],
+                        colValor5=row[7],
+                        colValor6=row[8],
+                        colValor7=row[9],
+                        colValor8=row[10],
+                        colValor9=row[11],
+                        colValor10=row[12],
+                        estadoReg=row[14],
+                        codigoCups_id=row[15],
+                        concepto_id=row[16],
+                        tiposTarifa_id=row[17],
+                        serviciosAdministrativos_id=row[19],
+
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/TarifariosSSuministros.csv'
+    print("file_path", file_path)
+
+    tarifariosSSuministros = TarifariosSSuministros.objects.count()
+
+    if (tarifariosSSuministros == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    tarifariosSSuministros = TarifariosSSuministros.objects.create(
+                        codigoHomologado=row[1],
+                        colValorBase=row[2],
+                        colValor1=row[3],
+                        colValor2=row[4],
+                        colValor3=row[5],
+                        colValor4=row[6],
+                        colValor5=row[7],
+                        colValor6=row[8],
+                        colValor7=row[9],
+                        colValor8=row[10],
+                        colValor9=row[11],
+                        colValor10=row[12],
+                        estadoReg=row[14],
+                        codigoCum_id=row[15],
+                        concepto_id=row[16],
+                        tiposTarifa_id=row[17],
+                        serviciosAdministrativos_id=row[19],
+
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/TablaHonorariosIss.csv'
+    print("file_path", file_path)
+
+    tablaHonorariosIss = TablaHonorariosIss.objects.count()
+
+    if (tablaHonorariosIss == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    tablaHonorariosIss = TablaHonorariosIss.objects.create(
+                        homologado=row[1],
+                        valorUvr=row[2],
+                        estadoReg=row[4],
+                        tiposHonorarios_id=row[5],
+                        tiposTarifaProducto_id=row[6],
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/TablaHonorariosSoat.csv'
+    print("file_path", file_path)
+
+    tablaHonorariosSoat = TablaHonorariosSoat.objects.count()
+
+    if (tablaHonorariosSoat == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    tablaHonorariosSoat = TablaHonorariosSoat.objects.create(
+                        homologado=row[1],
+                        smldv=row[2],
+                        estadoReg=row[4],
+                        grupoQx_id=row[5],
+                        tiposHonorarios_id=row[6],
+                        tiposTarifaProducto_id=row[7],
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/TablaMaterialSuturaCuracion.csv'
+    print("file_path", file_path)
+
+    tablaMaterialSuturaCuracion = TablaMaterialSuturaCuracion.objects.count()
+
+    if (tablaMaterialSuturaCuracion == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    tablaMaterialSuturaCuracion = TablaMaterialSuturaCuracion.objects.create(
+                        homologado=row[1],
+                        smldv=row[2],
+                        cruento=row[3],
+                        estadoReg=row[5],
+                        grupoQx_id=row[6],
+                        tiposTarifaProducto_id=row[7],
+                        minimosLegales_id=row[9],
+                        tipoHonorario_id=row[10],
+
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/TablaMaterialSuturaCuracionIss.csv'
+    print("file_path", file_path)
+
+    tablaMaterialSuturaCuracionIss = TablaMaterialSuturaCuracionIss.objects.count()
+
+    if (tablaMaterialSuturaCuracionIss == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    tablaMaterialSuturaCuracionIss = TablaMaterialSuturaCuracionIss.objects.create(
+                        homologado=row[1],
+                        desdeUvr=row[2],
+                        hastaUvr=row[3],
+                        valor=row[4],
+                        estadoReg=row[6],
+                        tiposSala_id=row[7],
+                        tiposTarifaProducto_id=row[8],
+                        tipoHonorario_id=row[10],
+
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/TablaSalasDeCirugia.csv'
+    print("file_path", file_path)
+
+    tablaSalasDeCirugia = TablaSalasDeCirugia.objects.count()
+
+    if (tablaSalasDeCirugia == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    tablaSalasDeCirugia = TablaSalasDeCirugia.objects.create(
+                        homologado=row[1],
+                        smldv=row[2],
+                        cruento=row[3],
+                        estadoReg=row[5],
+                        grupoQx_id=row[6],
+                        tiposTarifaProducto_id=row[7],
+                        tipoHonorario_id=row[9],
+
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/TablaSalasDeCirugiaIss.csv'
+    print("file_path", file_path)
+
+    tablaSalasDeCirugiaIss = TablaSalasDeCirugiaIss.objects.count()
+
+    if (tablaSalasDeCirugiaIss == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    tablaSalasDeCirugiaIss = TablaSalasDeCirugiaIss.objects.create(
+                        homologado=row[1],
+                        desdeUvr=row[2],
+                        hastaUvr=row[3],
+                        valor=row[4],
+                        estadoReg=row[6],
+                        tiposTarifaProducto_id=row[7],
+                        tiposSala_id=row[9],
+                        tipoHonorario_id=row[10],
+
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
+
+    file_path = 'C:\EntornosPython\pos7ParticionadoLienzo/vulner\CargueInicial/TarifariosProcedimientosHonorarios.csv'
+    print("file_path", file_path)
+
+    tarifariosProcedimientosHonorarios = TarifariosProcedimientosHonorarios.objects.count()
+
+    if (tarifariosProcedimientosHonorarios == 0):
+
+        with open(file_path, 'r') as f:
+            reader = csv.reader(f, delimiter=';')
+            next(reader)
+
+            for row in reader:
+                try:
+                    print("row nombre = ", row[1])
+
+                    tarifariosProcedimientosHonorarios = TarifariosProcedimientosHonorarios.objects.create(
+                        codigoHomologado=row[1],
+                        valorHonorarioAnestesiologo=row[2],
+                        valorHonorarioCirujano=row[3],
+                        valorHonorarioDobleVia=row[4],
+                        valorHonorarioPerfucionista=row[5],
+                        valorHonorarioUnicaVia=row[6],
+                        valorHonorarioDobleViaAcceso=row[7],
+                        valorHonorarioAyudante=row[8],
+                        estadoReg=row[10],
+                        codigoCups_id=row[11],
+                        concepto_id=row[12],
+                        tiposTarifa_id=row[13],
+                        serviciosAdministrativos_id=row[15],
+
+                    )
+                except (valueError, IndexError) as e:
+
+                    print("Error al crear : {e}")
+                    return JsonResponse({'success': False, 'Mensaje': e})
 
 
 
